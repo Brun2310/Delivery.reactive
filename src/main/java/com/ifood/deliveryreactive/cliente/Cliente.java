@@ -22,4 +22,5 @@ public class Cliente {
     private Endereco endereco;
     private Long telefone;
 
+
 }
