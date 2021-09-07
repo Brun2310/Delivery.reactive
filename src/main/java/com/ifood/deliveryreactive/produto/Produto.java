@@ -3,7 +3,7 @@ package com.ifood.deliveryreactive.produto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import com.ifood.deliveryreactive.Restaurante;
+import com.ifood.deliveryreactive.restaurante.Restaurante;
 
 public class Produto {
 
