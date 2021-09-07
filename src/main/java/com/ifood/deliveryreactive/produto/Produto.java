@@ -1,4 +1,9 @@
-package com.ifood.deliveryreactive;
+package com.ifood.deliveryreactive.produto;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import com.ifood.deliveryreactive.Restaurante;
 
 public class Produto {
 
@@ -9,11 +14,7 @@ public class Produto {
     private int id;
     private String nomePrato;
     @OneToOne @JoinColumn(name = "restauranteid", referencedColumnName = "restauranteId")
-    // Varios restaurantes com mesmo produto?
     private Restaurante restaurante;
     private String descricao;
 
 }
-
-//cachorro quente gabriel 1
-//cachorro quente bruno 2

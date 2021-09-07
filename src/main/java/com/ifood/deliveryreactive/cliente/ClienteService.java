@@ -1,0 +1,4 @@
+package com.ifood.deliveryreactive.cliente;
+
+public class ClienteService {
+}

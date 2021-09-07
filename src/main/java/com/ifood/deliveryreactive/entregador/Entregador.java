@@ -1,4 +1,9 @@
-package com.ifood.deliveryreactive;
+package com.ifood.deliveryreactive.entregador;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ifood.deliveryreactive.Endereco;
+
+import javax.persistence.*;
 
 public class Entregador {
 

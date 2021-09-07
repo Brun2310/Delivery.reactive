@@ -1,4 +1,12 @@
-package com.ifood.deliveryreactive;
+package com.ifood.deliveryreactive.pedido;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ifood.deliveryreactive.Entregador;
+import com.ifood.deliveryreactive.cliente.Cliente;
+import com.ifood.deliveryreactive.produto.Produto;
+
+import javax.persistence.*;
+import java.util.List;
 
 public class Pedido {
 

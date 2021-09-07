@@ -1,9 +1,13 @@
-package com.ifood.deliveryreactive;
+package com.ifood.deliveryreactive.restaurante;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ifood.deliveryreactive.Endereco;
+
+import javax.persistence.*;
 
 public class Restaurante {
 
-    @Id
-    @JsonIgnore
+    @Id @JsonIgnore
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "restauranteId")
     private int id;
