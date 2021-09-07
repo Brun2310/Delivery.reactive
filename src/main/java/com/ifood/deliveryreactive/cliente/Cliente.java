@@ -11,8 +11,7 @@ import javax.persistence.*;
 @Table(name = "cliente")
 public class Cliente {
 
-    @Id
-    @JsonIgnore
+    @Id @JsonIgnore
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "clienteId")
     private int id;
