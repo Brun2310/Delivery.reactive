@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "endereço")
 public class Endereco {
 
+
     @Id
     @JsonIgnore
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
