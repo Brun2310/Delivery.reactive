@@ -26,7 +26,7 @@ public class Produto {
     private BigDecimal preco;
     private int vendas;
     private String descricao;
-    @ManyToOne @JoinColumn(name = "restauranteId", referencedColumnName = "restauranteId")
+    @DBRef
     private Restaurante restaurante;
 
 }

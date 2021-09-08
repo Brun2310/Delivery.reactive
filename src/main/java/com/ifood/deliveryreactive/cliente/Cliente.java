@@ -15,17 +15,18 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
-@Data
 public class Cliente {
 
     @Id @JsonIgnore
     private int id;
     private String nome;
     private int idade;
-    @OneToOne @JoinColumn(name = "enderecoId", referencedColumnName = "enderecoId")
+    @DBRef
+//    @OneToOne @JoinColumn(name = "enderecoId", referencedColumnName = "enderecoId")
     private Endereco endereco;
     private int telefone;
-    @OneToMany @JoinColumn(name = "pedidoId", referencedColumnName = "pedidoId")
+    @DBRef
+//    @OneToMany @JoinColumn(name = "pedidoId", referencedColumnName = "pedidoId")
     private List<Pedido> pedidos;
 
 
