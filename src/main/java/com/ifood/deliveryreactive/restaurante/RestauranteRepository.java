@@ -1,9 +1,8 @@
 package com.ifood.deliveryreactive.restaurante;
 
-import com.ifood.deliveryreactive.cliente.Cliente;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RestauranteRepository extends JpaRepository<Restaurante, Integer> {
+public interface RestauranteRepository extends ReactiveMongoRepository<Restaurante, Integer> {
 }
