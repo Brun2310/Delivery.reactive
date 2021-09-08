@@ -19,7 +19,7 @@ public class RestauranteService {
     private final ProdutoRepository produtoRepository;
 
     public Flux<Restaurante> listarTodos() {
-        return restauranteRepository.findAll();
+        return restauranteRepository.findAll().switchIfEmpty(Flux.empty());
     }
 
     public Mono<Restaurante> inserirRestaurante(RestauranteRequest restauranteRequest) {
@@ -27,13 +27,13 @@ public class RestauranteService {
         return restauranteRepository.save(restaurante);
     }
 
-    public Flux<Produto> listarMaisVendidos(Restaurante restaurante) {
+    public Flux<Produto> listarMaisVendidos(Mono<Restaurante> restaurante) {
         return produtoRepository.findByRestaurante(restaurante)
-                .sort(Comparator.comparing(Produto::getVendas));
+                .sort(Comparator.comparing(Produto::getVendas)).switchIfEmpty(Flux.empty());
     }
 
-    public Optional<Restaurante> findByNome(String nome) {
-        return this.restauranteRepository.findByNome(nome);
+    public Mono<Restaurante> findByNome(String nome) {
+        return this.restauranteRepository.findByNome(nome).switchIfEmpty(Mono.empty());
     }
 
 }

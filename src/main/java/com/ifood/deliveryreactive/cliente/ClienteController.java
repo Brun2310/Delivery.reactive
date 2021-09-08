@@ -19,7 +19,7 @@ public class ClienteController {
     public Flux<Cliente> listarTodos() { return clienteService.listarTodos(); }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
-    @GetMapping
+    @PostMapping
     public Mono<Cliente> inserirCliente(@RequestBody ClienteRequest clienteRequest) {
         return  clienteService.inserirCliente(clienteRequest);
     }

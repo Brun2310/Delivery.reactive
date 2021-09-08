@@ -15,11 +15,7 @@ public class DeliveryReactiveApplication {
 /*
 
     TODO Consulta dos ultimos pedidos de um cliente
-    TODO Consulta dos produtos mais vendidos de um restaurante
+    TODO Consulta dos produtos mais vendidos de um restaurante (Testar)
 
-    TODO aplicar webflux
-    TODO aplicar MVC
-    
-    TODO mongodb
 
  */

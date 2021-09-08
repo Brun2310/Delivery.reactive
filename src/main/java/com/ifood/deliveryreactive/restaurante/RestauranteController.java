@@ -28,9 +28,9 @@ public class RestauranteController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{nome}")
+    @GetMapping("/produtos/{nome}")
     public Flux<Produto> produtosMaisVendidos(@PathVariable String nome) {
-        var restaurante = restauranteService.findByNome(nome).get();
+        var restaurante = restauranteService.findByNome(nome);
         return restauranteService.listarMaisVendidos(restaurante);
     }
 

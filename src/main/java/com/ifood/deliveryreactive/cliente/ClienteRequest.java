@@ -1,26 +1,20 @@
-package com.ifood.deliveryreactive.restaurante;
+package com.ifood.deliveryreactive.cliente;
 
 import com.ifood.deliveryreactive.Endereco;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Builder
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class RestauranteRequest {
+public class ClienteRequest {
 
     private String nome;
+    private int idade;
     private int cep;
     private int numero;
     private String complemento;
     private int telefone;
 
-    public Restaurante convert() {
-        return Restaurante.builder()
+    public Cliente convert() {
+        return Cliente.builder()
                 .nome(this.nome)
+                .idade(this.idade)
                 .endereco(Endereco.builder()
                         .cep(this.cep)
                         .numero(this.numero)
