@@ -2,10 +2,15 @@ package com.ifood.deliveryreactive.cliente;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ifood.deliveryreactive.Endereco;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Data
 @Table(name = "cliente")

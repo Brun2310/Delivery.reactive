@@ -33,6 +33,5 @@ public class Restaurante {
     private Long telefone;
     //@OneToMany @JoinColumn(name = "produtoId", referencedColumnName = "produtoId")
     //private List<Produto> produto;
-    // man ta ai?
-    //os dois, a ideia é igual
+
 }

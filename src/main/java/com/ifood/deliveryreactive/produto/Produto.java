@@ -4,9 +4,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import com.ifood.deliveryreactive.restaurante.Restaurante;
+import lombok.*;
 
 import java.math.BigDecimal;
 
+@Builder
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "produto")
 public class Produto {
 
     @Id

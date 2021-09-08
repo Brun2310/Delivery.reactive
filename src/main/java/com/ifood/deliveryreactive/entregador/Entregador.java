@@ -2,9 +2,17 @@ package com.ifood.deliveryreactive.entregador;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ifood.deliveryreactive.Endereco;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Builder
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "entregador")
 public class Entregador {
 
     @Id

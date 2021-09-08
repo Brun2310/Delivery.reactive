@@ -1,13 +1,10 @@
 package com.ifood.deliveryreactive.restaurante;
 
+import com.ifood.deliveryreactive.produto.Produto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -30,10 +27,11 @@ public class RestauranteController {
         return restauranteService.inserirRestaurante(restauranteRequest);
     }
 
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    @GetMapping
-    public Flux<Restaurante> produtosMaisVendidos() {
-        return restauranteService.listarTodos();
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{nome}")
+    public Flux<Produto> produtosMaisVendidos(@PathVariable String nome) {
+        var restaurante = restauranteService.findByNome(nome).get();
+        return restauranteService.listarMaisVendidos(restaurante);
     }
 
 }
