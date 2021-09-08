@@ -5,20 +5,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import com.ifood.deliveryreactive.restaurante.Restaurante;
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 
 @Builder
-@Entity
+@Document
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "produto")
+//@Table(name = "produto")
 public class Produto {
 
-    @Id
-    @JsonIgnore
+    @Id @JsonIgnore
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "produtoId")
     private int id;

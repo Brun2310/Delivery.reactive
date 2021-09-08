@@ -1,26 +1,27 @@
 package com.ifood.deliveryreactive;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Builder
-@Entity
+@Document
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "endereço")
+//@Table(name = "endereço")
 public class Endereco {
 
     @Id @JsonIgnore
-    @Column(name = "enderecoId")
+    //@Column(name = "enderecoId")
     private String id;
 
     @NotNull

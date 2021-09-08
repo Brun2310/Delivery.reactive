@@ -1,9 +1,12 @@
 package com.ifood.deliveryreactive;
 
+import com.ifood.deliveryreactive.cliente.ClienteRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
+
 public class DeliveryReactiveApplication {
 
     public static void main(String[] args) {

@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
@@ -23,10 +24,11 @@ public class Restaurante {
     @Id @JsonIgnore
     private int restauranteId;
 
-    @NotNull
+    @NotNull()
     private String nome;
 
-    @OneToOne @JoinColumn(name = "enderecoId", referencedColumnName = "enderecoId")
+    @DBRef
+    //@OneToOne @JoinColumn(name = "enderecoId", referencedColumnName = "enderecoId")
     private Endereco endereco;
 
     @NotNull
