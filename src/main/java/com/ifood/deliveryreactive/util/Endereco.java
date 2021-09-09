@@ -22,7 +22,7 @@ public class Endereco {
 
     @Id @JsonIgnore
     //@Column(name = "enderecoId")
-    private String id;
+    private String idEndereco;
 
     @NotNull
     private int cep;
@@ -32,5 +32,6 @@ public class Endereco {
 
     @NotNull
     private String complemento;
+
 
 }
