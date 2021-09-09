@@ -1,14 +1,13 @@
 package com.ifood.deliveryreactive.cliente;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ifood.deliveryreactive.Endereco;
+import com.ifood.deliveryreactive.util.Endereco;
 import com.ifood.deliveryreactive.pedido.Pedido;
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Builder
@@ -19,19 +18,22 @@ import java.util.List;
 @Document
 public class Cliente {
 
-    @Id //@JsonIgnore
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id @JsonIgnore
     private String id;
+
+    @NotNull
     private String nome;
+
+    @NotNull
     private int idade;
-    //@DBRef
-    //@JsonIgnore
-//    @OneToOne @JoinColumn(name = "enderecoId", referencedColumnName = "enderecoId")
+
+    @NotNull
     private Endereco endereco;
+
+    @NotNull
     private int telefone;
-    //@JsonIgnore
-    //@DBRef
-//    @OneToMany @JoinColumn(name = "pedidoId", referencedColumnName = "pedidoId")
+
+    @JsonIgnore
     private List<Pedido> pedidos;
 
 }

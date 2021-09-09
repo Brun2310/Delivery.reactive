@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Builder
@@ -18,17 +19,15 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table(name = "pedido")
 public class Pedido {
 
     @Id @JsonIgnore
-    //@Column(name = "pedidoId")
-    private int id;
-    @DBRef
-    //@OneToMany @JoinColumn(name = "produtoId", referencedColumnName = "produtoId")
-    private List<Produto> produto;
-    @DBRef
-    //@OneToOne @JoinColumn(name = "entregadorId", referencedColumnName = "entregadorId")
+    private String id;
+
+    @NotNull
+    private List<Produto> produto; // Restaurante?
+
+    @NotNull
     private Entregador entregador;
 
 }

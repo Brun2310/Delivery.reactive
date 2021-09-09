@@ -7,7 +7,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Repository
-public interface ProdutoRepository extends ReactiveMongoRepository<Produto, Integer> {
+public interface ProdutoRepository extends ReactiveMongoRepository<Produto, String> {
     Flux<Produto> findByRestaurante(Mono<Restaurante> restaurante);
-
 }

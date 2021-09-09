@@ -1,14 +1,12 @@
 package com.ifood.deliveryreactive.cliente;
 
-import com.ifood.deliveryreactive.Endereco;
+import com.ifood.deliveryreactive.util.Endereco;
 
 public class ClienteRequest {
 
     private String nome;
     private int idade;
-    private int cep;
-    private int numero;
-    private String complemento;
+    private Endereco endereco;
     private int telefone;
 
     public Cliente convert() {
@@ -16,9 +14,9 @@ public class ClienteRequest {
                 .nome(this.nome)
                 .idade(this.idade)
                 .endereco(Endereco.builder()
-                        .cep(this.cep)
-                        .numero(this.numero)
-                        .complemento(this.complemento)
+                        .cep(this.endereco.getCep())
+                        .numero(this.endereco.getNumero())
+                        .complemento(this.endereco.getComplemento())
                         .build())
                 .telefone(this.telefone)
                 .build();

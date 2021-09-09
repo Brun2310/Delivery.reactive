@@ -1,13 +1,11 @@
 package com.ifood.deliveryreactive.restaurante;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ifood.deliveryreactive.Endereco;
+import com.ifood.deliveryreactive.util.Endereco;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
@@ -21,23 +19,16 @@ import javax.validation.constraints.NotNull;
 @Document
 public class Restaurante {
 
-    @Id @JsonIgnore
-    private int restauranteId;
+    @Id //@JsonIgnore
+    private String restauranteId;
 
     @NotNull()
     private String nome;
 
-    @DBRef
-    //@OneToOne @JoinColumn(name = "enderecoId", referencedColumnName = "enderecoId")
+    @NotNull
     private Endereco endereco;
 
     @NotNull
     private int telefone;
-
-    public Restaurante(String nome, Endereco endereco, int telefone) {
-        this.nome = nome;
-        this.endereco = endereco;
-        this.telefone = telefone;
-    }
 
 }

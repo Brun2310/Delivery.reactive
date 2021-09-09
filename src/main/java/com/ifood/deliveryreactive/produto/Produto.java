@@ -3,6 +3,8 @@ package com.ifood.deliveryreactive.produto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import com.ifood.deliveryreactive.restaurante.Restaurante;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -16,18 +18,24 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table(name = "produto")
 public class Produto {
 
     @Id @JsonIgnore
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "produtoId")
-    private int id;
+    private String id;
+
+    @NotNull
     private String nomePrato;
+
+    @NotNull
     private BigDecimal preco;
+
+    @JsonIgnore
     private int vendas;
+
+    @NotNull
     private String descricao;
-    @DBRef
+
+    @NotNull
     private Restaurante restaurante;
 
 }
