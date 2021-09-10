@@ -20,22 +20,16 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Produto {
 
-    @Id @JsonIgnore
+    @Id //@JsonIgnore
     private String id;
 
-    @NotNull
     private String nomePrato;
 
-    @NotNull
     private BigDecimal preco;
 
     @JsonIgnore
     private int vendas;
 
-    @NotNull
     private String descricao;
-
-    @NotNull
-    private Restaurante restaurante;
 
 }

@@ -31,4 +31,7 @@ public class Restaurante {
     @NotNull
     private int telefone;
 
+    //@JsonIgnore @DBRef
+    private List<Produto> produto;
+
 }
