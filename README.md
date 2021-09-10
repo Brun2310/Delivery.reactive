@@ -19,10 +19,6 @@ Nessa aplicação, criamos um projeto webflux para delivery de pedidos com cadas
 
 * **Bruno Costa - brunoaocosta@hotmail.com - https://github.com/Brun2310**
 
-* **Fernando Costa - fct0316@gmail.com - https://github.com/**
-
 * **Gabriel Persuhn - gabrielpersuhn000@gmail.com - https://github.com/GabrielPersuhn**
-
-* **Luiz Santos - luiz.alexandre1213@gmail.com - https://github.com/**
 
 * **Savio Januario - saviojanuario@gmail.com - https://github.com/Saviojanuario**

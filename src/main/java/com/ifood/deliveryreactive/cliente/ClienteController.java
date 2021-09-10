@@ -1,10 +1,6 @@
 package com.ifood.deliveryreactive.cliente;
 
-
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -23,9 +19,21 @@ public class ClienteController {
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PostMapping
-    public Mono<Cliente> inserirCliente(@RequestBody ClienteRequest clienteRequest) {
-        return  clienteService.inserirCliente(clienteRequest);
+    public Mono<Cliente> inserirCliente(@RequestBody Mono<Cliente> cliente) {
+        return  clienteService.inserirCliente(cliente);
     }
 
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PatchMapping("/{id}")
+    public Mono<Cliente> atualizarCliente(@RequestBody Mono<Cliente> cliente,
+                                                  @PathVariable String id) {
+        return clienteService.atualizar(cliente,id);
+    }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @DeleteMapping("/{id}")
+    public Mono<Void> deletarCliente(@PathVariable String id) {
+        return clienteService.delete(id);
+    }
 
 }

@@ -22,8 +22,8 @@ public class RestauranteController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Mono<Restaurante> inserirRestaurante(@RequestBody Restaurante restauranteRequest) {
-        return restauranteService.inserirRestaurante(restauranteRequest);
+    public Mono<Restaurante> inserirRestaurante(@RequestBody Mono<Restaurante> restaurante) {
+        return restauranteService.inserirRestaurante(restaurante);
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
@@ -33,18 +33,17 @@ public class RestauranteController {
         return restauranteService.listarMaisVendidos(restaurante);
     }
 
-    /*@ResponseStatus(HttpStatus.ACCEPTED)
-    @PatchMapping
-    public Mono<Restaurante> atualizarRestaurante(@RequestBody RestauranteRequest restauranteRequest) {
-        var restaurante = Mono.just(restauranteRequest.convert());
-        return restauranteService.atualizar(restaurante);
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PatchMapping("/{id}")
+    public Mono<Restaurante> atualizarRestaurante(@RequestBody Mono<Restaurante> restaurante,
+                                                  @PathVariable String id) {
+        return restauranteService.atualizar(restaurante,id);
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
-    @DeleteMapping
-    public Mono<Void> deletarRestaurante(@RequestBody String nome) {
-        //var restaurante = restauranteService.findByNome(nome);
-        return restauranteService.deleteByNome(nome);
-    }*/
+    @DeleteMapping("/{id}")
+    public Mono<Void> deletarRestaurante(@PathVariable String id) {
+        return restauranteService.delete(id);
+    }
 
 }

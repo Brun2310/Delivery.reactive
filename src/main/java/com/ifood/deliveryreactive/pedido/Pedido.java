@@ -10,24 +10,23 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Builder
-@Document
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Document
 public class Pedido {
 
-    @Id @JsonIgnore
+    @Id //@JsonIgnore
     private String id;
 
-    @NotNull
+    //@JsonIgnore @DBRef
     private List<Produto> produto; // Restaurante?
 
-    @NotNull
+    //@JsonIgnore @DBRef
     private Entregador entregador;
 
 }

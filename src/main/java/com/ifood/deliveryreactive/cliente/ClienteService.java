@@ -13,10 +13,17 @@ public class ClienteService {
 
     public Flux<Cliente> listarTodos() { return  clienteRepository.findAll().switchIfEmpty(Flux.empty());}
 
-    public Mono<Cliente> inserirCliente(ClienteRequest clienteRequest) {
-        var cliente  = clienteRequest.convert();
-        return clienteRepository.save(cliente);
+    public Mono<Cliente> inserirCliente(Mono<Cliente> cliente) {
+        return cliente.flatMap(clienteRepository::save);
+    }
 
+    public Mono<Cliente> atualizar(Mono<Cliente> cliente, String id) {
+        return cliente.doOnNext(e->e.setId(id)).
+                flatMap(clienteRepository::save);
+    }
+
+    public Mono<Void> delete(String id) {
+        return this.clienteRepository.deleteById(id).switchIfEmpty(Mono.empty());
     }
 
 }

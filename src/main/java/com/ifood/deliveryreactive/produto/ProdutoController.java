@@ -19,9 +19,10 @@ public class ProdutoController {
     public Flux<Produto> listarTodos() { return produtoService.listarTodos(); }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
-    @PostMapping
-    public Mono<Produto> inserirProduto(@RequestBody Produto produto) {
-        return  produtoService.inserirProduto(produto);
+    @PostMapping("/{id}")
+    public Mono<Produto> inserirProduto(@RequestBody Mono<Produto> produto,
+                                        @PathVariable String id) {
+        return  produtoService.inserirProduto(produto,id);
     }
 
 }

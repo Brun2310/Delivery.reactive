@@ -1,5 +1,6 @@
 package com.ifood.deliveryreactive.pedido;
 
+import com.ifood.deliveryreactive.restaurante.Restaurante;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,21 @@ public class PedidoController {
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PostMapping
-    public Mono<Pedido> inserirPedido(@RequestBody Pedido pedido) {
-        return  pedidoService.inserirPedido(pedido);
+    public Mono<Pedido> inserirPedido(@RequestBody Mono<Pedido> pedido) {
+        return pedidoService.inserirPedido(pedido);
+    }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PatchMapping("/{id}")
+    public Mono<Pedido> atualizarPedido(@RequestBody Mono<Pedido> pedido,
+                                                  @PathVariable String id) {
+        return pedidoService.atualizar(pedido,id);
+    }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @DeleteMapping("/{id}")
+    public Mono<Void> deletarPedido(@PathVariable String id) {
+        return pedidoService.delete(id);
     }
 
 }

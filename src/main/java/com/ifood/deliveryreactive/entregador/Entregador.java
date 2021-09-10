@@ -6,29 +6,20 @@ import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Builder
-@Document
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Document
 public class Entregador {
 
-    @Id @JsonIgnore
+    @Id //@JsonIgnore
     private String id;
-
-    @NotNull
     private String nome;
-
-    @NotNull
     private int idade;
-
-    @NotNull
     private Endereco endereco;
-
-    @NotNull
     private Long telefone;
 
 }

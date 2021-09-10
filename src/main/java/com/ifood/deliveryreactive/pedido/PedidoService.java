@@ -13,10 +13,17 @@ public class PedidoService {
 
     public Flux<Pedido> listarTodos() { return  pedidoRepository.findAll().switchIfEmpty(Flux.empty());}
 
-    public Mono<Pedido> inserirPedido(Pedido pedidoRequest) {
-        //var cliente  = clienteRequest.convert();
-        return pedidoRepository.save(pedidoRequest);
+    public Mono<Pedido> inserirPedido(Mono<Pedido> pedido) {
+        return pedido.flatMap(pedidoRepository::save);
+    }
 
+    public Mono<Pedido> atualizar(Mono<Pedido> pedido, String id) {
+        return pedido.doOnNext(e->e.setId(id)).
+                flatMap(pedidoRepository::save);
+    }
+
+    public Mono<Void> delete(String id) {
+        return pedidoRepository.deleteById(id).switchIfEmpty(Mono.empty());
     }
 
 }

@@ -20,9 +20,8 @@ public class RestauranteService {
         return restauranteRepository.findAll().switchIfEmpty(Flux.empty());
     }
 
-    public Mono<Restaurante> inserirRestaurante(Restaurante restaurante) {
-        //var restaurante = restauranteRequest.convert();
-        return restauranteRepository.save(restaurante);
+    public Mono<Restaurante> inserirRestaurante(Mono<Restaurante> restaurante) {
+        return restaurante.flatMap(restauranteRepository::save);
     }
 
     public Flux<Produto> listarMaisVendidos(Mono<Restaurante> restaurante) {
@@ -34,13 +33,13 @@ public class RestauranteService {
         return this.restauranteRepository.findByNome(nome).switchIfEmpty(Mono.empty());
     }
 
-    /*public Mono<Restaurante> delete(String id) {
-        var restaurante = restauranteRepository.findByNome(nome);
-        return this.restauranteRepository.deleteById(id); //TODO-> .orElse(ERROR)
+    public Mono<Restaurante> atualizar(Mono<Restaurante> restaurante, String id) {
+        return restaurante.doOnNext(e->e.setId(id)).
+                flatMap(restauranteRepository::save);
     }
 
-    public Mono<Produto> atualizar(Mono<Restaurante> restaurante) {
-
-    }*/
+    public Mono<Void> delete(String id) {
+        return this.restauranteRepository.deleteById(id).switchIfEmpty(Mono.empty());
+    }
 
 }

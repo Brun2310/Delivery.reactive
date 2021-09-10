@@ -16,7 +16,7 @@ public class DeliveryReactiveApplication {
     TODO Consulta dos produtos mais vendidos de um restaurante (Testar)
 
     TODO busca por cep (Retrofit)
-    TODO arrumar resposta de Id em restaurante (está funcionando no cliente)
+    TODO necessidade de requests?
 
 
  */

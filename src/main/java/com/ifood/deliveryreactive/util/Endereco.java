@@ -1,4 +1,4 @@
-package com.ifood.deliveryreactive;
+package com.ifood.deliveryreactive.util;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;

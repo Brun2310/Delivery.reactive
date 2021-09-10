@@ -7,7 +7,6 @@ import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Builder
@@ -18,22 +17,14 @@ import java.util.List;
 @Document
 public class Cliente {
 
-    @Id @JsonIgnore
+    @Id //@JsonIgnore
     private String id;
-
-    @NotNull
     private String nome;
-
-    @NotNull
     private int idade;
-
-    @NotNull
     private Endereco endereco;
-
-    @NotNull
     private int telefone;
 
-    @JsonIgnore
+    //@JsonIgnore @DBRef
     private List<Pedido> pedidos;
 
 }
