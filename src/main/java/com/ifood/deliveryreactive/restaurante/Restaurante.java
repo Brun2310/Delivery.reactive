@@ -3,11 +3,7 @@ package com.ifood.deliveryreactive.restaurante;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ifood.deliveryreactive.produto.Produto;
 import com.ifood.deliveryreactive.util.Endereco;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,8 +11,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Builder
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
@@ -29,6 +24,6 @@ public class Restaurante {
     private int telefone;
 
     //@JsonIgnore @DBRef
-    private List<Produto> produto;
+    //private List<Produto> produto;
 
 }

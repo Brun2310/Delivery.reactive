@@ -16,7 +16,10 @@ public class DeliveryReactiveApplication {
     TODO Consulta dos produtos mais vendidos de um restaurante (Testar)
 
     TODO busca por cep (Retrofit)
-    TODO necessidade de requests?
+    TODO necessidade de requests (DTO)
+
+    TODO aumentar atributo vendas quando realizar pedido
+    TODO anotação para nome unico ??
 
 
  */

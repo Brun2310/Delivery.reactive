@@ -22,20 +22,19 @@ public class RestauranteController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Mono<Restaurante> inserirRestaurante(@RequestBody Mono<Restaurante> restaurante) {
+    public Mono<Restaurante> inserirRestaurante(@RequestBody Restaurante restaurante) {
         return restauranteService.inserirRestaurante(restaurante);
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
-    @GetMapping("/{nome}/produtos") //TODO testar
-    public Flux<Produto> produtosMaisVendidos(@PathVariable String nome) {
-        var restaurante = restauranteService.findByNome(nome);
-        return restauranteService.listarMaisVendidos(restaurante);
+    @GetMapping("/{id}/produtos") //TODO testar
+    public Flux<Produto> produtosMaisVendidos(@PathVariable String id) {
+        return restauranteService.produtosMaisVendidos(id);
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PatchMapping("/{id}")
-    public Mono<Restaurante> atualizarRestaurante(@RequestBody Mono<Restaurante> restaurante,
+    public Mono<Restaurante> atualizarRestaurante(@RequestBody Restaurante restaurante,
                                                   @PathVariable String id) {
         return restauranteService.atualizar(restaurante,id);
     }

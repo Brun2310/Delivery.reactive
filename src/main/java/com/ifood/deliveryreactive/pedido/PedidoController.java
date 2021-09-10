@@ -20,13 +20,13 @@ public class PedidoController {
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PostMapping
-    public Mono<Pedido> inserirPedido(@RequestBody Mono<Pedido> pedido) {
+    public Mono<Pedido> inserirPedido(@RequestBody Pedido pedido) {
         return pedidoService.inserirPedido(pedido);
     }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PatchMapping("/{id}")
-    public Mono<Pedido> atualizarPedido(@RequestBody Mono<Pedido> pedido,
+    public Mono<Pedido> atualizarPedido(@RequestBody Pedido pedido,
                                                   @PathVariable String id) {
         return pedidoService.atualizar(pedido,id);
     }

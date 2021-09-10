@@ -13,11 +13,11 @@ public class PedidoService {
 
     public Flux<Pedido> listarTodos() { return  pedidoRepository.findAll().switchIfEmpty(Flux.empty());}
 
-    public Mono<Pedido> inserirPedido(Mono<Pedido> pedido) {
+    public Mono<Pedido> inserirPedido(Pedido pedido) {
         return pedido.flatMap(pedidoRepository::save);
     }
 
-    public Mono<Pedido> atualizar(Mono<Pedido> pedido, String id) {
+    public Mono<Pedido> atualizar(Pedido pedido, String id) {
         return pedido.doOnNext(e->e.setId(id)).
                 flatMap(pedidoRepository::save);
     }
